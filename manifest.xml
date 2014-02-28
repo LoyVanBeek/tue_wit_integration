@@ -1,0 +1,23 @@
+<package>
+  <description brief="tue_wit_integration">
+
+	tue_wit_integration allows for the robot to listen for its name, then listen to a speech-command and have wit.ai
+        interpret the command.
+	The interpretation is then translated into commands for the TU/e robots (Amigo and Sergio, currently) for some action.
+
+  </description>
+  <author>LOY</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/tue_wit_integration</url>
+  <depend package="rospy"/>
+  <depend package="wit_ros"/>
+  <depend package="std_msgs"/>
+  <depend package="tue_pocketsphinx"/>
+  <depend package="robot_skills"/>
+ 
+
+
+</package>
+
+

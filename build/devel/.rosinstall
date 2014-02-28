@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/loy/ros/groovy/repos/yol-ros-pkg/tue_wit_integration/build/devel/setup.sh
