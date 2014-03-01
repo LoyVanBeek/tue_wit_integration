@@ -28,7 +28,7 @@ class Integration(object):
 
     def check_for_calling(self, message):
         rospy.logdebug("Received text {0}".format(message.data))
-        if message.data.lower() in ["amigo", "sergio", "susan"]: #Susan because the others are not in the dorpus ATM
+        if message.data.lower() in ["amigo", "sergio"]: #Susan because the others are not in the dorpus ATM
             #I have been called!
             try:
                 rospy.loginfo("Start listening...")

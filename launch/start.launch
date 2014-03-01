@@ -1,0 +1,33 @@
+<launch>
+    <include file="$(find amigo_machine_files)/machines/amigo1.machine" />
+    <include file="$(find amigo_machine_files)/machines/amigo2.machine" />
+    <include file="$(find amigo_machine_files)/machines/amigo3.machine" />
+    <include file="$(find amigo_machine_files)/machines/amigo4.machine" />
+
+    <include file="$(find tue_speech_recognition)/robot_names/robot_names_speech.launch" />
+    <include file="$(find text_to_speech)/launch/start.launch" />
+    <include file="$(find wit_ros)/launch/start.launch" />
+    
+    <group if="$(optenv ROBOT_REAL false)">
+        <!-- REAL ROBOT -->
+        <node   pkg="tue_wit_integration"
+                type="integrator.py"
+                respawn="true"
+                name="wit_integration"
+                output="screen"
+                machine="amigo3">
+        </node>
+    </group>
+    
+    <group unless="$(optenv ROBOT_REAL false)">
+        <!-- SIMULATION -->
+        <node   pkg="tue_wit_integration"
+                type="integrator.py"
+                respawn="true"
+                name="wit_integration"
+                output="screen">
+        </node>
+
+    </group>
+</launch>
+
