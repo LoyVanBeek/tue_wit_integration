@@ -14,6 +14,7 @@ from wit_ros.msg import Outcome, Entity
 from intents.hello import Hello
 from intents.give import Give
 from intents.move import Move
+from intents.control_device import ControlDevice
 
 import robot_skills.amigo
 
@@ -21,6 +22,7 @@ mapping = dict()
 mapping["hello"] = Hello
 mapping["give"] = Give
 mapping["move"] = Move
+mapping["control_device"] = ControlDevice
 
 class Integration(object):
     """Listen until called by name, then start wit_ros's listen_and_interpret service"""
