@@ -15,6 +15,7 @@ from intents.hello import Hello
 from intents.give import Give
 from intents.move import Move
 from intents.control_device import ControlDevice
+from intents.change_color import ChangeColor
 
 import robot_skills.amigo
 
@@ -23,6 +24,7 @@ mapping["hello"] = Hello
 mapping["give"] = Give
 mapping["move"] = Move
 mapping["control_device"] = ControlDevice
+mapping["change_color"] = ChangeColor
 
 class Integration(object):
     """Listen until called by name, then start wit_ros's listen_and_interpret service"""
