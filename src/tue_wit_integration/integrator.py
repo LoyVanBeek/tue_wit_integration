@@ -66,6 +66,6 @@ if __name__ == "__main__":
     robot = robot_skills.amigo.Amigo(dontInclude=['base','arms','perception','head', 'worldmodel', 'reasoner'])
 
     i = Integration(robot)
-    subscriber = rospy.Subscriber("/speech/output", String, i.check_for_calling)
+    subscriber = rospy.Subscriber("/speech/output", String, i.check_for_calling, queue_size=1)
 
     rospy.spin()

@@ -15,4 +15,12 @@ class Give(object):
             item = [entity.value for entity in outcome.entities if entity.name == "item"][0]
         except:
             pass
-        self.robot.speech.speak("I'll give someone {0}".format(item))
+        
+        contact = "someone"
+        try:
+            contact = [entity.value for entity in outcome.entities if entity.name == "contact"][0]
+            if contact == "me":
+                contact = "you"
+        except:
+            pass
+        self.robot.speech.speak("I'll give {1} {0}".format(item, contact))
