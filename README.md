@@ -12,6 +12,8 @@ Some commands it understands:
 - Amigo, give me a beer (Holy grail of personal robotics)
 - Amigo, hello --> it greets you back.
 
+[Demonstration video](http://youtu.be/fxQsYPI6PyI?t=1m7s)
+
 Before giving a command, you must first say the name of the robot ("Amigo"), so it starts listening for a command. 
 
 This ROS-node is easily extensible by writing an new interpretation for your wit.ai intent.
