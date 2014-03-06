@@ -63,7 +63,7 @@ class Integration(object):
 if __name__ == "__main__":
     rospy.init_node("tue_wit_integration", log_level=rospy.INFO)
 
-    robot = robot_skills.amigo.Amigo(dontInclude=['base','arms','perception','head', 'worldmodel', 'reasoner'])
+    robot = robot_skills.amigo.Amigo(dontInclude=['base','arms','perception','head', 'worldmodel'])
 
     i = Integration(robot)
     subscriber = rospy.Subscriber("/speech/output", String, i.check_for_calling, queue_size=1)
