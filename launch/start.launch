@@ -4,9 +4,7 @@
     <include file="$(find amigo_machine_files)/machines/amigo3.machine" />
     <include file="$(find amigo_machine_files)/machines/amigo4.machine" />
 
-    <include file="$(find tue_speech_recognition)/robot_names/robot_names.launch" />
-    <include file="$(find text_to_speech)/launch/start.launch" />
-    <include file="$(find wit_ros)/launch/start.launch" />
+    <include file="$(find tue_wit_integration)/launch/start_dependencies.launch" />
     
     <group if="$(optenv ROBOT_REAL false)">
         <!-- REAL ROBOT -->

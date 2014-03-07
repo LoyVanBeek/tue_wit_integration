@@ -14,10 +14,7 @@ class Move(object):
         """@param robot must be an instance of robot_skills.Amigo (TODO: generalize to Sergio)"""
         self.robot = robot
 
-    def interpret(self, outcome):
-        import ipdb; ipdb.set_trace()
-
-        
+    def interpret(self, outcome):        
         self.robot.reasoner.query(Compound("load_database", "tue_knowledge", 'prolog/locations.pl'))
         self.robot.reasoner.query(Compound("load_database", "tue_knowledge", 'prolog/objects.pl'))
 
@@ -31,6 +28,7 @@ class Move(object):
             simple_waypoint_names = [str(ans["Name"]).replace("_", " ") for ans in waypoints if isinstance(ans["Name"], Constant)]
 
             kwargs = {}
+            # import ipdb; ipdb.set_trace()
             if destination in simple_waypoint_names:
                 name = "the " + destination
                 query = Conjunction(
@@ -47,8 +45,8 @@ class Move(object):
                             Compound("environment", "E"), 
                             Compound("point_of_interest", destination, Compound("point_3d", "X", "Y", "Z")))
                     kwargs = {"lookat_query":query}
-
-                self.robot.speach.speak("There is nothing named {0}, I don't know where to go".format(destination))
+                else:
+                    self.robot.speech.speak("I don't know where {0} is".format(destination))
 
             try:
                 nav_state = states.NavigateGeneric(self.robot, **kwargs)

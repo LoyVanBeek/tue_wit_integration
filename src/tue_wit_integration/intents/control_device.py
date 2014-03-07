@@ -36,13 +36,13 @@ class ControlDevice(object):
             rospy.logwarn("No new switch state (on/off) specified")
 
         sentence = "I don't know what to turn on or off."
-        if device and switch_on and room:
-            sentence = "I'll turn {0} the {1} in the {2}".format(switch_on, device, room)
         if device and switch_on:
             if switch_on != "toggle":
                 sentence = "I'll turn {0} the {1}".format(switch_on, device)
             sentence = "I'll toggle the {0}".format(device)
-
+        if device and switch_on and room:
+            sentence = "I'll turn {0} the {1} in the {2}".format(switch_on, device, room)
+        
         self.robot.speech.speak(sentence)
 
 
